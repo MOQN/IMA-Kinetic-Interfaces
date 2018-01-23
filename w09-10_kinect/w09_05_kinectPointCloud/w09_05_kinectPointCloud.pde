@@ -38,7 +38,7 @@ void draw() {
   
   pushMatrix();
   translate(width/2, height/2);
-  float rY = map(mouseX, 0, width, -180, 180);
+  float rY = map(mouseX, 0, width, -180, 180) + 180;
   rotateY(radians(rY));
   for (int i=0; i < rawDepth.length; i+=resolution) {
     if (rawDepth[i] >= thresholdMin && rawDepth[i] <= thresholdMax && rawDepth[i] != 0) {

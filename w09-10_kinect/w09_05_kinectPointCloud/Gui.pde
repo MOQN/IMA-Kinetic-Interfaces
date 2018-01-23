@@ -12,13 +12,13 @@ void setupGui() {
   cp5.addSlider("thresholdMin")
     .setPosition(10, 40 + sliderSpacing*0)
     .setSize(sliderW, sliderH)
-    .setRange(0, 4499)
+    .setRange(1, 4499)
     .setValue(0)
     ;
   cp5.addSlider("thresholdMax")
     .setPosition(10, 40 + sliderSpacing*1)
     .setSize(sliderW, sliderH)
-    .setRange(0, 4499)
+    .setRange(1, 4499)
     .setValue(4499)
     ;
   cp5.addSlider("resolution")

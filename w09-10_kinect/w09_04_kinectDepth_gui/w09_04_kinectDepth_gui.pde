@@ -36,13 +36,13 @@ void setup() {
   cp5.addSlider("thresholdMin")
     .setPosition(10, 40)
     .setSize(sliderW, sliderH)
-    .setRange(0, 4499)
+    .setRange(1, 4499)
     .setValue(0)
     ;
   cp5.addSlider("thresholdMax")
     .setPosition(10, 60)
     .setSize(sliderW, sliderH)
-    .setRange(0, 4499)
+    .setRange(1, 4499)
     .setValue(4499)
     ;
 }
