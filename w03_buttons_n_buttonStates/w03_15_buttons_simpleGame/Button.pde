@@ -8,7 +8,7 @@ class Button {
   /** 
    state
    0: not pressed
-   1: hover
+   1: on hover
    2: triggered
    3: on press
    4: released
@@ -32,6 +32,7 @@ class Button {
 
     sound = snd;
   }
+
 
   void update() {
     posX = posX + velX;
@@ -99,8 +100,6 @@ class Button {
       stroke(r, g, b);
       fill(r, g, b, 50);
       ellipse(posX, posY, size * 1.4, size * 1.4);
-
-      
       break;
     }
 
