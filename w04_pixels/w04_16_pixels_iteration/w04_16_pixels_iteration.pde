@@ -11,6 +11,7 @@ void setup() {
   size(800, 640);
   background(0);
   noStroke();
+  ellipseMode(CORNER);
 
   img = loadImage("face.png");
 

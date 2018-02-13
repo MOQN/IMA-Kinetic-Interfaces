@@ -24,7 +24,7 @@ void draw() {
       // get the distance from the center to the pixel
       float distance = dist(img.width/2, img.height/2, x, y);
       
-      float sineValue = sin( (distance+frameCount)*0.02 ); 
+      float sineValue = sin( (distance+frameCount)*0.5 ); 
       
       float r = map(sineValue, -1, 1, 0, 255);
       float g = 0;

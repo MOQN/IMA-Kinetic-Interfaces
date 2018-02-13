@@ -1,17 +1,16 @@
 // IMA NYU Shanghai
 // Interaction Lab + Kinetic Interfaces
 // MOQN
-// Feb 12 2016
+// Feb 14 2016
 
 
 PImage img;
-
+String[] characters = {" ", ".", "~", "!", "*", "m", "%", "&", "M", "@"};
 
 void setup() {
   size(800, 640);
   background(0);
   noStroke();
-  ellipseMode(CORNER);
 
   img = loadImage("face.png");
 
@@ -28,10 +27,11 @@ void setup() {
       color c = img.pixels[index];
       float white = (red(c) + green(c) + blue(c)) / 3; // average
       
-      float dia = map(white, 0, 255, 0, gridSize);
+      int charIndex = floor( map(white, 0, 255, 0, characters.length-1) );
       
       fill(255);
-      ellipse(x, y, dia, dia);
+      textSize(gridSize);
+      text(characters[charIndex], x, y);
     }
   }
 }
