@@ -52,12 +52,12 @@ void draw() {
       int g = int( green(cam.pixels[i]) );
       int b = int( blue(cam.pixels[i]) );
       int sum = r + g + b; // this will become the index of the sampleColors array
-      
+
       // if the color value is white (255, 255, 255), the sum value will be 765.
       // if the color value is black (0, 0, 0), the sum value will be 0.
-      // so the range of the some is from 0 to 765.
-      // So the length of the color sample array should be 766 (765 + 1(including zero)) 
-      
+      // so the range of the sum is from 0 to 765.
+      // so the length of the color sample array should be 766. (765 + 1(including zero)) 
+
       // Again, the sum can be used as an index of the sampleColors array.
       img.pixels[i] = sampleColors[sum];
     }
