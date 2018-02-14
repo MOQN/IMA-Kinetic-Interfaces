@@ -10,27 +10,29 @@ Capture cam;
 PImage img;
 
 PImage sampleColorImg;
-//create an array of size 768
-//The number 768 is from the width of gradationSample.png
-color[] sampleColors = new color[768];
+color[] sampleColors;
+
 
 void setup() {
   size(640, 480);
-  
+
   cam = new Capture(this, width, height);
   cam.start();
-  
-  img = createImage(width, height, RGB); //ARGB  //not RGBA
-  
-  // load sample colors
+
+  // load sampleColors image
   sampleColorImg = loadImage("gradationSample.png");
-  int w = sampleColorImg.width;
+
+  // create an array of size 766
+  // The number 766 is from the width of gradationSample.png
+  sampleColors = new color[sampleColorImg.width];
+
   sampleColorImg.loadPixels();
-  for (int i = 0; i < w; i++) {
+  for (int i = 0; i < sampleColorImg.width; i++) {
     sampleColors[i] = sampleColorImg.pixels[i];
   }
-  //now sampeColors array contains 768 colors loaded from gradationSample.png
-  sampleColorImg.updatePixels();
+
+  // create a blank image for the pixel manipulation
+  img = createImage(width, height, RGB); //ARGB
 }
 
 
@@ -49,11 +51,14 @@ void draw() {
       int r = int( red(cam.pixels[i]) );
       int g = int( green(cam.pixels[i]) );
       int b = int( blue(cam.pixels[i]) );
-      int sum = r+g+b; // this becomes the index of the sampleColors array
+      int sum = r + g + b; // this will become the index of the sampleColors array
       
-      //if the color value is white (255, 255, 255)
-      //the sum value will be 765.
-      //Teh sum 765 can be used as an index of the sampleColors array.
+      // if the color value is white (255, 255, 255), the sum value will be 765.
+      // if the color value is black (0, 0, 0), the sum value will be 0.
+      // so the range of the some is from 0 to 765.
+      // So the length of the color sample array should be 766 (765 + 1(including zero)) 
+      
+      // Again, the sum can be used as an index of the sampleColors array.
       img.pixels[i] = sampleColors[sum];
     }
   }
