@@ -12,6 +12,7 @@ PImage img;
 color pickedColor;
 int threshold = 20;
 
+float avgX, avgY;
 
 void setup() {
   size(640, 480);
@@ -26,7 +27,11 @@ void draw() {
     cam.read();
     cam.loadPixels();
   }
-
+  
+  int sumX = 0;
+  int sumY = 0;
+  int count = 0;
+  
   int h = cam.height;
   int w = cam.width;
   for (int y = 0; y < h; y++) {
@@ -42,6 +47,9 @@ void draw() {
         && b > blue(pickedColor)  - threshold && b < blue(pickedColor)  + threshold )
       {
         img.pixels[i] = color(255, 0, 0);
+        sumX += x;
+        sumY += y;
+        count++;
       } else { 
         img.pixels[i] = color(0, 0);
       }
@@ -50,12 +58,26 @@ void draw() {
   img.updatePixels();
   image(cam, 0, 0);
   image(img, 0, 0);
+  
+  if (count > 0) {
+    avgX = sumX / count;
+    avgY = sumY / count;
+  }
 
+  noStroke();
   fill(pickedColor);
   rect(10, 10, 50, 50);
-
   fill(255);
   text("Threshold: " + threshold, 70, 30);
+  
+  
+  // show the center position
+  
+  noFill();
+  stroke(0, 255, 0);
+  ellipse(avgX, avgY, 10, 10);
+  line(avgX, 0, avgX, height);
+  line(0, avgY, width, avgY);
 }
 
 
