@@ -52,7 +52,7 @@ void draw() {
       float g = green(mirrorImg.pixels[mirrorIndex]);
       float b = blue(mirrorImg.pixels[mirrorIndex]);
 
-      if ( g * threshold > (r + b) )
+      if ( b * threshold > (r + g) )
       {
         trackingImg.pixels[mirrorIndex] = color(255, 0, 0);
         sumX += mirrorX; // *****
