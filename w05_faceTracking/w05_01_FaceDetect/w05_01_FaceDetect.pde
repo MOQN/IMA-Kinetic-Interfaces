@@ -19,9 +19,8 @@ Rectangle[] faces;
 
 
 void setup() {
-  size(320, 240, P2D);
+  size(320, 240);
   
-  // Start capturing
   cam = new Capture(this, 320, 240);
   cam.start();
 
@@ -31,24 +30,23 @@ void setup() {
   // Which "cascade" are we going to use?
   opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);  
   //opencv.loadCascade(OpenCV.CASCADE_EYE);  
-  //opencv.loadCascade(OpenCV.CASCADE_NOSE);    
+  //opencv.loadCascade(OpenCV.CASCADE_NOSE);
+  
+  // Also, have a look at the webpage below
+  // https://docs.opencv.org/3.3.0/d7/d8b/tutorial_py_face_detection.html
 }
 
-// New images from camera
-void captureEvent(Capture cam) {
-  cam.read();
-}
 
 void draw() {
-  
+  if ( cam.available() ) {
+    cam.read();
+  }  
   background(0);
   
   // We have to always "load" the camera image into OpenCV 
   opencv.loadImage(cam);
-  
   // Detect the faces
   faces = opencv.detect();
-  
   // Draw the video
   image(cam, 0, 0);
 

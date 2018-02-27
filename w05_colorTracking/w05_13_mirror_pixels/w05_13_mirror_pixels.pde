@@ -17,7 +17,7 @@ void setup() {
   cam = new Capture(this, 640, 480);
   cam.start();
   
-  mirror = createImage(width, height, RGB); //ARGB, if you want to add alpha  //not RGBA
+  mirror = createImage(width, height, RGB);
 }
 
 

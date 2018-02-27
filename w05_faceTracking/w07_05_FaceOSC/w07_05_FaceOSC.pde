@@ -31,6 +31,7 @@ float poseScale;
 color c;
 float prev_rightEyebrowHeight;
 
+
 void setup() {
   size(640, 480);
   frameRate(30);
