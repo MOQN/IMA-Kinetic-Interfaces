@@ -57,7 +57,6 @@ class Circle {
     x = _x;
     y = _y;
     size = _size;
-    clr = color(255);
     alpha = 255;
     directionX = random(-1, 1);
     directionY = random(-1, 1);

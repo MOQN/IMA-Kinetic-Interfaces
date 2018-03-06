@@ -113,16 +113,12 @@ void LeapMotion_run() {
       switch(finger.getType()) {
       case 0:
         // System.out.println("thumb");
-        
-        finger1X = fingerPosition.x;  // ***
-        finger1Y = fingerPosition.y;  // ***
-        
         break;
       case 1:
         // System.out.println("index");
         
-        finger2X = fingerPosition.x;  // ***
-        finger2Y = fingerPosition.y;  // ***
+        fingerX = fingerPosition.x;  // ***
+        fingerY = fingerPosition.y;  // ***
         
         break;
       case 2:
