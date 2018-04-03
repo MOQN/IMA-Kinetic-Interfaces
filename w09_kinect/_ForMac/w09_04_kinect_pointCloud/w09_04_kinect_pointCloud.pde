@@ -64,7 +64,7 @@ void draw() {
       if (x % resolution == 0 && y % resolution == 0) { 
         float pX = map(x, 0, w, -w/2, w/2); 
         float pY = map(y, 0, h, -h/2, h/2);
-        float pZ = map(depth, 1, 4499, 900, -900) - (thresholdMax - thresholdMin)/2;
+        float pZ = map(depth, 1, 4499, 500, -500);
         point(pX, pY, pZ);
       }
     } else {
