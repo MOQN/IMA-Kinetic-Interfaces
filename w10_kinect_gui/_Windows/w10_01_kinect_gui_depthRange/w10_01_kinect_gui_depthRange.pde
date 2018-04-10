@@ -51,16 +51,17 @@ void draw() {
 
   depthImg.loadPixels();
   for (int i=0; i < rawDepth.length; i++) {
-
-    if (rawDepth[i] >= thresholdMin
-      && rawDepth[i] <= thresholdMax
-      && rawDepth[i] != 0) {
+    int depth = rawDepth[i];
+    
+    if (depth >= thresholdMin
+      && depth <= thresholdMax
+      && depth != 0) {
 
       int x = i % KinectPV2.WIDTHDepth;
       int y = floor(i / KinectPV2.WIDTHDepth);
 
-      float r = map(rawDepth[i], thresholdMin, thresholdMax, 255, 0);
-      float b = map(rawDepth[i], thresholdMin, thresholdMax, 0, 255);
+      float r = map(depth, thresholdMin, thresholdMax, 255, 0);
+      float b = map(depth, thresholdMin, thresholdMax, 0, 255);
 
       depthImg.pixels[i] = color(r, 0, b);
     } else {
