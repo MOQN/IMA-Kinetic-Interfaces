@@ -39,7 +39,7 @@ void draw() {
   background(0);
 
 
-  updateRegisterImage();  // ***
+  updateRegisteredImage();  // ***
 
 
   // 3D space
@@ -110,7 +110,7 @@ void mouseDragged() {
 
 
 
-void updateRegisterImage() {
+void updateRegisteredImage() {
   float [] mapDtoC = kinect2.getMapDepthToColor();
 
   kinect2.getColorImage(); // in order to update the RawColor data
