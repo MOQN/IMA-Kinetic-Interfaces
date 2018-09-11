@@ -1,2 +1,2 @@
 # IMA-Kinetic-Interfaces
-Kinetic Interfaces | IMA @ NYU Shanghai | Spring 2018
+Kinetic Interfaces | IMA @ NYU Shanghai | Fall 2018
