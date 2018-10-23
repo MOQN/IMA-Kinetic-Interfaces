@@ -18,7 +18,7 @@ void setup() {
   bgColor = color(0);
   sound = new SoundFile(this, "sound.wav");
   
-  //    buttons.add( new Button(x+pitch/2, y+pitch/2, sound) );
+  // buttons.add( new Button(x+pitch/2, y+pitch/2, sound) );
 }
 
 
