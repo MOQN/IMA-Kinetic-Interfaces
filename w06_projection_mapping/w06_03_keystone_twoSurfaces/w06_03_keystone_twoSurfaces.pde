@@ -20,7 +20,7 @@ PGraphics p2;
 
 void setup() {
   size(800, 600, P3D);
-
+  //fullScreen(P3D);
   ks = new Keystone(this);
   s1 = ks.createCornerPinSurface(400, 300, 20);
   p1 = createGraphics(400, 300, P3D);
